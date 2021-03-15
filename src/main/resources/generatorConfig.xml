@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
-    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
-    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <classPathEntry location="H:\\repository\\mysql\\mysql-connector-java\\8.0.21\\mysql-connector-java-8.0.21.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
-        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
 
-        <jdbcConnection connectionURL="jdbc:mysql://us1:8021/grms?useSSL=false" driverClass="com.mysql.cj.jdbc.Driver" password="root" userId="root">
+        <jdbcConnection connectionURL="jdbc:mysql://us1:8021/grms?useSSL=false" driverClass="com.mysql.cj.jdbc.Driver"
+                        password="root" userId="root">
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
@@ -29,7 +30,8 @@
         </sqlMapGenerator>
 
         <!--自动生成的*Mapper.xml文件存放路径 -->
-        <javaClientGenerator targetPackage="com.briup.bigdata.pre.grms.web.dao" targetProject="./src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="com.briup.bigdata.pre.grms.web.dao" targetProject="./src/main/java"
+                             type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
