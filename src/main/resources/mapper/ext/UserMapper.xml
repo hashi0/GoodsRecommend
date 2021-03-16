@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.briup.bigdata.pre.grms.web.dao.ext.IUserDAO">
-    <select id="selectByIdUser" resultType="com.briup.bigdata.pre.grms.web.bean.User">
+<mapper namespace="top.cyanide.GRMS.dao.ext.IUserDAO">
+    <select id="selectByIdUser" resultType="top.cyanide.GRMS.pojo.User">
         select *
         from grms.users u
         where u.id=#{id,jdbcType=INTEGER}
     </select>
 
-    <select id="findAllUsers" resultType="com.briup.bigdata.pre.grms.web.bean.User">
+    <select id="findAllUsers" resultType="top.cyanide.GRMS.pojo.User">
         select *
         from grms.users u
         <if test="name != null and name != ''">
