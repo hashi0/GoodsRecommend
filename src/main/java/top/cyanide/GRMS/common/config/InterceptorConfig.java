@@ -1,4 +1,4 @@
-package top.cyanide.GRMS.config;
+package top.cyanide.GRMS.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import top.cyanide.GRMS.intercepter.AuthorizationInterceptor;
+import top.cyanide.GRMS.common.intercepter.AuthorizationInterceptor;
 
 /**
  * @author Bai

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import top.cyanide.GRMS.constant.ErrorCode;
+import top.cyanide.GRMS.common.constant.ErrorCode;
 import top.cyanide.GRMS.model.response.BasicResponse;
 import top.cyanide.GRMS.pojo.Result;
 import top.cyanide.GRMS.pojo.User;

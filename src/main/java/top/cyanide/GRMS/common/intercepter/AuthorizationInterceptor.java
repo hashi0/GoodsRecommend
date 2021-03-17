@@ -1,9 +1,9 @@
-package top.cyanide.GRMS.intercepter;
+package top.cyanide.GRMS.common.intercepter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
-import top.cyanide.GRMS.constant.ErrorCode;
+import top.cyanide.GRMS.common.constant.ErrorCode;
 import top.cyanide.GRMS.model.response.BasicResponse;
 import top.cyanide.GRMS.pojo.User;
 import top.cyanide.GRMS.sevice.IUserService;

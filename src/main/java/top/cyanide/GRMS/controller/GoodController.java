@@ -4,7 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.cyanide.GRMS.constant.ErrorCode;
+import top.cyanide.GRMS.common.constant.ErrorCode;
 import top.cyanide.GRMS.model.response.BasicResponse;
 import top.cyanide.GRMS.pojo.Good;
 import top.cyanide.GRMS.pojo.User;

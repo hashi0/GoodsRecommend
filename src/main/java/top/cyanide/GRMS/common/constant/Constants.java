@@ -1,4 +1,4 @@
-package top.cyanide.GRMS.constant;
+package top.cyanide.GRMS.common.constant;
 
 /**
  * 存储常量的类

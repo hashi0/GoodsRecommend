@@ -1,4 +1,4 @@
-package top.cyanide.GRMS.config;
+package top.cyanide.GRMS.common.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;

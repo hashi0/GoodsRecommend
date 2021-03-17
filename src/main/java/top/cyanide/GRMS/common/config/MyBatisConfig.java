@@ -1,4 +1,4 @@
-package top.cyanide.GRMS.config;
+package top.cyanide.GRMS.common.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

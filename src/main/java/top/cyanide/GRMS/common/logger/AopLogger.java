@@ -1,4 +1,4 @@
-package top.cyanide.GRMS.logger;
+package top.cyanide.GRMS.common.logger;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;

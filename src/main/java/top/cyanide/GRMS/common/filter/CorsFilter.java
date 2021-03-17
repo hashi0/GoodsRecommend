@@ -1,4 +1,4 @@
-package top.cyanide.GRMS.filter;
+package top.cyanide.GRMS.common.filter;
 
 import top.cyanide.GRMS.utils.StringUtils;
 

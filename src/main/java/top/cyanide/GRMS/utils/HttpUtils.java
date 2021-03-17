@@ -8,7 +8,7 @@ import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import top.cyanide.GRMS.constant.Constants;
+import top.cyanide.GRMS.common.constant.Constants;
 
 import java.io.IOException;
 
