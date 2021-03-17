@@ -24,7 +24,8 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
     private IUserService userService;
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws IOException {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
+                             Object handler) throws IOException {
         String token = request.getHeader("Authorization");
         if (StringUtils.isEmpty(token)) {
             this.authFailed(response);
@@ -43,7 +44,8 @@ public class AuthorizationInterceptor implements HandlerInterceptor {
         this.response(response, NumUtils.newRandomInt(), ErrorCode.UNAUTHORIZED, "非法用户，拒绝访问！");
     }
 
-    private void response(HttpServletResponse response, Integer logId, Integer errorCode, String errorMessage) throws IOException {
+    private void response(HttpServletResponse response, Integer logId, Integer errorCode,
+                          String errorMessage) throws IOException {
         response.setCharacterEncoding("UTF-8");
         response.setHeader("Content-Type", "application/json;charset=UTF-8");
         response.setHeader("Access-Control-Allow-Credentials", "true");

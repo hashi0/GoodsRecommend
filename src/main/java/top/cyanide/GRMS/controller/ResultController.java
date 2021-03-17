@@ -34,9 +34,9 @@ public class ResultController {
     @ApiOperation("获取订单信息接口")
     @GetMapping(value = "all")
     public BasicResponse findAllResults(
-            @RequestParam(value = "uid", required = false) Integer uid,
-            @RequestParam(value = "page") Integer page,
-            @RequestParam(value = "pageSize") Integer pageSize
+        @RequestParam(value = "uid", required = false) Integer uid,
+        @RequestParam(value = "page") Integer page,
+        @RequestParam(value = "pageSize") Integer pageSize
     ) {
         if (page < 1 || pageSize < 1) {
             BasicResponse response = new BasicResponse();
@@ -47,7 +47,8 @@ public class ResultController {
         Map<String, Object> map = new HashMap<>();
         List<Result> allResults = this.resultService.findAllResults(uid);
         map.put("total", allResults.size());
-        allResults = allResults.subList(pageSize > allResults.size() ? 0 : (page - 1) * pageSize, Math.min((page) * pageSize, allResults.size()));
+        allResults = allResults.subList(pageSize > allResults.size() ? 0 : (page - 1) * pageSize,
+            Math.min((page) * pageSize, allResults.size()));
         map.put("results", allResults);
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);
@@ -59,9 +60,9 @@ public class ResultController {
     @ApiOperation("获取订单信息接口")
     @GetMapping(value = "my")
     public BasicResponse findMyResults(
-            HttpServletRequest request,
-            @RequestParam(value = "page") Integer page,
-            @RequestParam(value = "pageSize") Integer pageSize
+        HttpServletRequest request,
+        @RequestParam(value = "page") Integer page,
+        @RequestParam(value = "pageSize") Integer pageSize
     ) {
         if (page < 1 || pageSize < 1) {
             BasicResponse response = new BasicResponse();
@@ -74,7 +75,8 @@ public class ResultController {
         Map<String, Object> map = new HashMap<>();
         List<Result> allResults = this.resultService.findAllResults(user.getId());
         map.put("total", allResults.size());
-        allResults = allResults.subList(pageSize > allResults.size() ? 0 : (page - 1) * pageSize, Math.min((page) * pageSize, allResults.size()));
+        allResults = allResults.subList(pageSize > allResults.size() ? 0 : (page - 1) * pageSize,
+            Math.min((page) * pageSize, allResults.size()));
         map.put("results", allResults);
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);

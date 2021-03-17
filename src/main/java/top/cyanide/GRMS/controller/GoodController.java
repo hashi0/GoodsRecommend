@@ -39,9 +39,9 @@ public class GoodController {
     @ApiOperation("获取商品信息接口")
     @GetMapping(value = "all")
     public BasicResponse findAllGoods(
-            @RequestParam(value = "query") String name,
-            @RequestParam(value = "page") Integer page,
-            @RequestParam(value = "pageSize") Integer pageSize
+        @RequestParam(value = "query") String name,
+        @RequestParam(value = "page") Integer page,
+        @RequestParam(value = "pageSize") Integer pageSize
     ) {
         if (page < 1 || pageSize < 1) {
             BasicResponse response = new BasicResponse();
@@ -52,7 +52,8 @@ public class GoodController {
         Map<String, Object> map = new HashMap<>();
         List<Good> allGoods = this.goodService.findAllGoods(name);
         map.put("total", allGoods.size());
-        allGoods = allGoods.subList(pageSize > allGoods.size() ? 0 : (page - 1) * pageSize, Math.min((page) * pageSize, allGoods.size()));
+        allGoods = allGoods.subList(pageSize > allGoods.size() ? 0 : (page - 1) * pageSize,
+            Math.min((page) * pageSize, allGoods.size()));
         map.put("goods", allGoods);
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);
@@ -64,8 +65,8 @@ public class GoodController {
     @ApiOperation(value = "购买商品接口", consumes = "application/json;charset=UTF-8")
     @PostMapping(value = "buy")
     public BasicResponse buy(
-            HttpServletRequest request,
-            @RequestBody Good good
+        HttpServletRequest request,
+        @RequestBody Good good
     ) {
         String token = request.getHeader("Authorization");
         User user = this.userService.findUserByToken(token);

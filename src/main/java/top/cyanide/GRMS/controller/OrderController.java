@@ -29,8 +29,8 @@ public class OrderController {
     @ApiOperation("获取订单信息接口")
     @GetMapping(value = "all")
     public BasicResponse findAllOrders(
-            @RequestParam(value = "page") Integer page,
-            @RequestParam(value = "pageSize") Integer pageSize
+        @RequestParam(value = "page") Integer page,
+        @RequestParam(value = "pageSize") Integer pageSize
     ) {
         if (page < 1 || pageSize < 1) {
             BasicResponse response = new BasicResponse();
@@ -41,7 +41,8 @@ public class OrderController {
         Map<String, Object> map = new HashMap<>();
         List<Order> allOrders = this.orderService.findAllOrders();
         map.put("total", allOrders.size());
-        allOrders = allOrders.subList(pageSize > allOrders.size() ? 0 : (page - 1) * pageSize, Math.min((page) * pageSize, allOrders.size()));
+        allOrders = allOrders.subList(pageSize > allOrders.size() ? 0 : (page - 1) * pageSize,
+            Math.min((page) * pageSize, allOrders.size()));
         map.put("orders", allOrders);
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);

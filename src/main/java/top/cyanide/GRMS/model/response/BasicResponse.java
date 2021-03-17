@@ -48,35 +48,34 @@ public class BasicResponse {
         return this.logId;
     }
 
-    public void setLogId(Integer logId) {
-        this.logId = logId;
-    }
-
     public Integer getErrorCode() {
         return this.errorCode;
-    }
-
-    public void setErrorCode(Integer errorCode) {
-        this.errorCode = errorCode;
     }
 
     public String getErrorMessage() {
         return this.errorMessage;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
-    }
-
     public Object getData() {
         return this.data;
+    }
+
+    public void setLogId(Integer logId) {
+        this.logId = logId;
+    }
+
+    public void setErrorCode(Integer errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 
     public void setData(Object data) {
         this.data = data;
     }
 
-    @Override
     public boolean equals(final Object o) {
         if (o == this) {
             return true;
@@ -95,17 +94,21 @@ public class BasicResponse {
         }
         final Object this$errorCode = this.getErrorCode();
         final Object other$errorCode = other.getErrorCode();
-        if (this$errorCode == null ? other$errorCode != null : !this$errorCode.equals(other$errorCode)) {
+        if (this$errorCode == null ? other$errorCode != null :
+            !this$errorCode.equals(other$errorCode)) {
             return false;
         }
         final Object this$errorMessage = this.getErrorMessage();
         final Object other$errorMessage = other.getErrorMessage();
-        if (this$errorMessage == null ? other$errorMessage != null : !this$errorMessage.equals(other$errorMessage)) {
+        if (this$errorMessage == null ? other$errorMessage != null :
+            !this$errorMessage.equals(other$errorMessage)) {
             return false;
         }
         final Object this$data = this.getData();
         final Object other$data = other.getData();
-        if (this$data == null ? other$data != null : !this$data.equals(other$data)) return false;
+        if (this$data == null ? other$data != null : !this$data.equals(other$data)) {
+            return false;
+        }
         return true;
     }
 
@@ -113,7 +116,6 @@ public class BasicResponse {
         return other instanceof BasicResponse;
     }
 
-    @Override
     public int hashCode() {
         final int PRIME = 59;
         int result = 1;
@@ -137,22 +139,22 @@ public class BasicResponse {
         BasicResponseBuilder() {
         }
 
-        public BasicResponseBuilder logId(Integer logId) {
+        public BasicResponse.BasicResponseBuilder logId(Integer logId) {
             this.logId = logId;
             return this;
         }
 
-        public BasicResponseBuilder errorCode(Integer errorCode) {
+        public BasicResponse.BasicResponseBuilder errorCode(Integer errorCode) {
             this.errorCode = errorCode;
             return this;
         }
 
-        public BasicResponseBuilder errorMessage(String errorMessage) {
+        public BasicResponse.BasicResponseBuilder errorMessage(String errorMessage) {
             this.errorMessage = errorMessage;
             return this;
         }
 
-        public BasicResponseBuilder data(Object data) {
+        public BasicResponse.BasicResponseBuilder data(Object data) {
             this.data = data;
             return this;
         }
@@ -161,9 +163,10 @@ public class BasicResponse {
             return new BasicResponse(errorCode, errorMessage, data);
         }
 
-        @Override
         public String toString() {
-            return "BasicResponse.BasicResponseBuilder(logId=" + this.logId + ", errorCode=" + this.errorCode + ", errorMessage=" + this.errorMessage + ", data=" + this.data + ")";
+            return "BasicResponse.BasicResponseBuilder(logId=" + this.logId + ", errorCode=" +
+                this.errorCode + ", errorMessage=" + this.errorMessage + ", data=" + this.data +
+                ")";
         }
     }
 }

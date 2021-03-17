@@ -107,7 +107,8 @@ public class UserController {
         data.put("name", user.getName());
         data.put("age", user.getAge());
         data.put("gender", user.getGender());
-        String token = this.jwtUtils.createJwt(String.valueOf(user.getId()), user.getPasswd(), data);
+        String token =
+            this.jwtUtils.createJwt(String.valueOf(user.getId()), user.getPasswd(), data);
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);
         response.setErrorMessage("登录成功！");
@@ -138,9 +139,9 @@ public class UserController {
     @ApiOperation("获取用户信息接口")
     @GetMapping(value = "all")
     public BasicResponse findAllUsers(
-            @RequestParam(value = "query") String name,
-            @RequestParam(value = "page") Integer page,
-            @RequestParam(value = "pageSize") Integer pageSize
+        @RequestParam(value = "query") String name,
+        @RequestParam(value = "page") Integer page,
+        @RequestParam(value = "pageSize") Integer pageSize
     ) {
         if (page < 1 || pageSize < 1) {
             BasicResponse response = new BasicResponse();
@@ -151,7 +152,8 @@ public class UserController {
         Map<String, Object> map = new HashMap<>();
         List<User> allUsers = this.userService.findAllUsers(name);
         map.put("total", allUsers.size());
-        allUsers = allUsers.subList(pageSize > allUsers.size() ? 0 : (page - 1) * pageSize, Math.min((page) * pageSize, allUsers.size()));
+        allUsers = allUsers.subList(pageSize > allUsers.size() ? 0 : (page - 1) * pageSize,
+            Math.min((page) * pageSize, allUsers.size()));
         map.put("users", allUsers);
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);
