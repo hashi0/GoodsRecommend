@@ -1,5 +1,6 @@
 package top.cyanide.GRMS.sevice.impl;
 
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.cyanide.GRMS.dao.ResultMapper;
@@ -15,14 +16,16 @@ import java.util.List;
  */
 @Service
 public class ResultServiceImpl implements IResultService {
-    @Autowired
+    @Resource
     private IResultDAO resultDAO;
-    @Autowired
+    @Resource
     private ResultMapper resultMapper;
 
     @Override
     public List<Result> findAllResults(Integer uid) {
-        if (uid == null) return this.resultMapper.selectByExample(new ResultExample());
+        if (uid == null) {
+            return this.resultMapper.selectByExample(new ResultExample());
+        }
         return this.resultDAO.findAllResults(uid);
     }
 }

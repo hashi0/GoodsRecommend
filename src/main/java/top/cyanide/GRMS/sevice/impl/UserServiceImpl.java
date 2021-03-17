@@ -1,6 +1,7 @@
 package top.cyanide.GRMS.sevice.impl;
 
 import io.jsonwebtoken.Claims;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.cyanide.GRMS.dao.UserMapper;
@@ -17,11 +18,11 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements IUserService {
-    @Autowired
+    @Resource
     private UserMapper userMapper;
-    @Autowired
+    @Resource
     private JwtUtils jwtUtils;
-    @Autowired
+    @Resource
     private IUserDAO userDAO;
 
     @Override

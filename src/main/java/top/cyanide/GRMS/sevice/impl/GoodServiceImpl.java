@@ -1,5 +1,6 @@
 package top.cyanide.GRMS.sevice.impl;
 
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.cyanide.GRMS.dao.GoodMapper;
@@ -16,11 +17,11 @@ import java.util.List;
  */
 @Service
 public class GoodServiceImpl implements IGoodService {
-    @Autowired
+    @Resource
     private IGoodDAO goodDAO;
-    @Autowired
+    @Resource
     private GoodMapper goodMapper;
-    @Autowired
+    @Resource
     private OrderMapper orderMapper;
 
     @Override

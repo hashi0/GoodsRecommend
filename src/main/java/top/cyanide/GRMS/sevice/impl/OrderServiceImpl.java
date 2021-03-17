@@ -1,5 +1,6 @@
 package top.cyanide.GRMS.sevice.impl;
 
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import top.cyanide.GRMS.dao.OrderMapper;
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Service
 public class OrderServiceImpl implements IOrderService {
-    @Autowired
+    @Resource
     private OrderMapper orderMapper;
 
     @Override
