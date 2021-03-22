@@ -10,5 +10,5 @@ import java.util.List;
  * @author Bai
  */
 public interface IResultDAO {
-    List<Result> findAllResults(@Param(value = "uid") Integer uid);
+    List<Result> findAllResults(@Param(value = "userId") Integer uid);
 }

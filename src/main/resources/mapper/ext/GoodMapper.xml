@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="top.cyanide.GRMS.dao.ext.IGoodDAO">
-    <select id="findAllGoods" resultType="top.cyanide.GRMS.pojo.Good">
+    <select id="findAllGoods" resultType="top.cyanide.GRMS.pojo.Product">
         select *
-        from grms.goods g
-        <if test="name != null and name != ''">
+        from grms.products p
+        <if test="productName != null and productName != ''">
             <where>
-                g.name like concat('%',#{name,jdbcType=VARCHAR},'%')
+                p.product_name like concat('%',#{productName,jdbcType=VARCHAR},'%')
             </where>
         </if>
     </select>

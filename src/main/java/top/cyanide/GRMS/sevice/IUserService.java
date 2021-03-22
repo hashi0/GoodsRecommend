@@ -18,7 +18,7 @@ public interface IUserService {
 
     List<User> findAllUsers();
 
-    List<User> findAllUsers(String name);
+    List<User> findAllUsers(String userId);
 
     User findUserByToken(String token);
 }

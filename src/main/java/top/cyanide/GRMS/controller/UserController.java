@@ -81,34 +81,34 @@ public class UserController {
     @ApiOperation("用户登录接口")
     @PostMapping(value = "login")
     public BasicResponse login(@RequestBody Map<String, String> map) {
-        String username = map.get("username");
+        String user_id = map.get("user_id");
         String password = map.get("password");
-        if (username == null || password == null) {
+        if (user_id == null || password == null) {
             BasicResponse response = new BasicResponse();
             response.setErrorCode(ErrorCode.ERRORR);
             response.setErrorMessage("用户名或密码错误！");
             return response;
         }
 
-        User user = this.userService.selectById(Integer.parseInt(username));
+        User user = this.userService.selectById(Integer.parseInt(user_id));
         if (user == null) {
             BasicResponse response = new BasicResponse();
             response.setErrorCode(ErrorCode.NONE_EXIST);
             response.setErrorMessage("查无此用户！");
             return response;
         }
-        if (!user.getPasswd().equals(password)) {
+        if (!user.getPassword().equals(password)) {
             BasicResponse response = new BasicResponse();
             response.setErrorCode(ErrorCode.ERRORR);
             response.setErrorMessage("密码错误！");
             return response;
         }
         Map<String, Object> data = new HashMap<>();
-        data.put("name", user.getName());
-        data.put("age", user.getAge());
-        data.put("gender", user.getGender());
+//        data.put("name", user.getName());
+//        data.put("age", user.getAge());
+//        data.put("gender", user.getGender());
         String token =
-            this.jwtUtils.createJwt(String.valueOf(user.getId()), user.getPasswd(), data);
+            this.jwtUtils.createJwt(String.valueOf(user.getUserId()), user.getPassword(), data);
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);
         response.setErrorMessage("登录成功！");
@@ -139,7 +139,7 @@ public class UserController {
     @ApiOperation("获取用户信息接口")
     @GetMapping(value = "all")
     public BasicResponse findAllUsers(
-        @RequestParam(value = "query") String name,
+        @RequestParam(value = "query") String userId,
         @RequestParam(value = "page") Integer page,
         @RequestParam(value = "pageSize") Integer pageSize
     ) {
@@ -150,7 +150,7 @@ public class UserController {
             return response;
         }
         Map<String, Object> map = new HashMap<>();
-        List<User> allUsers = this.userService.findAllUsers(name);
+        List<User> allUsers = this.userService.findAllUsers(userId);
         map.put("total", allUsers.size());
         allUsers = allUsers.subList(pageSize > allUsers.size() ? 0 : (page - 1) * pageSize,
             Math.min((page) * pageSize, allUsers.size()));

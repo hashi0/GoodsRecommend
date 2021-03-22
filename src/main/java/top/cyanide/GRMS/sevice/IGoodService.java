@@ -3,16 +3,17 @@ package top.cyanide.GRMS.sevice;
 import top.cyanide.GRMS.pojo.Good;
 
 import java.util.List;
+import top.cyanide.GRMS.pojo.Product;
 
 /**
  * @author Bai
  */
 public interface IGoodService {
-    List<Good> findAllGoods();
+    List<Product> findAllGoods();
 
-    List<Good> findAllGoods(String name);
+    List<Product> findAllGoods(String productName);
 
-    void add(Good good);
+    void add(Product good);
 
-    void buy(Integer uid, Integer gid);
+    void buy(Integer userId, Integer productId, String productName);
 }

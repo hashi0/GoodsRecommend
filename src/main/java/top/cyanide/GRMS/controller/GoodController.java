@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import top.cyanide.GRMS.common.constant.ErrorCode;
 import top.cyanide.GRMS.model.response.BasicResponse;
-import top.cyanide.GRMS.pojo.Good;
+import top.cyanide.GRMS.pojo.Product;
 import top.cyanide.GRMS.pojo.User;
 import top.cyanide.GRMS.sevice.IGoodService;
 import top.cyanide.GRMS.sevice.IUserService;
@@ -27,7 +27,7 @@ public class GoodController {
 
     @ApiOperation(value = "添加商品接口", consumes = "application/json;charset=UTF-8")
     @PostMapping(value = "add")
-    public BasicResponse add(@RequestBody Good good) {
+    public BasicResponse add(@RequestBody Product good) {
         this.goodService.add(good);
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);
@@ -39,7 +39,7 @@ public class GoodController {
     @ApiOperation("获取商品信息接口")
     @GetMapping(value = "all")
     public BasicResponse findAllGoods(
-        @RequestParam(value = "query") String name,
+        @RequestParam(value = "query") String productName,
         @RequestParam(value = "page") Integer page,
         @RequestParam(value = "pageSize") Integer pageSize
     ) {
@@ -50,7 +50,7 @@ public class GoodController {
             return response;
         }
         Map<String, Object> map = new HashMap<>();
-        List<Good> allGoods = this.goodService.findAllGoods(name);
+        List<Product> allGoods = this.goodService.findAllGoods(productName);
         map.put("total", allGoods.size());
         allGoods = allGoods.subList(pageSize > allGoods.size() ? 0 : (page - 1) * pageSize,
             Math.min((page) * pageSize, allGoods.size()));
@@ -66,11 +66,11 @@ public class GoodController {
     @PostMapping(value = "buy")
     public BasicResponse buy(
         HttpServletRequest request,
-        @RequestBody Good good
+        @RequestBody Product good
     ) {
         String token = request.getHeader("Authorization");
         User user = this.userService.findUserByToken(token);
-        this.goodService.buy(user.getId(), good.getId());
+        this.goodService.buy(user.getUserId(), good.getProductId(), good.getProductName());
         BasicResponse response = new BasicResponse();
         response.setErrorCode(ErrorCode.SUCCESS);
         response.setErrorMessage("商品购买成功");

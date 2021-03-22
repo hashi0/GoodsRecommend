@@ -198,6 +198,24 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <!--指定配置文件位置-->
+                    <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+                    <!--重复生成时是否覆盖文件-->
+                    <overwrite>true</overwrite>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>8.0.21</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
         <finalName>${project.artifactId}</finalName>
         <defaultGoal>package</defaultGoal>

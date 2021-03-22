@@ -4,15 +4,15 @@
     <select id="selectByIdUser" resultType="top.cyanide.GRMS.pojo.User">
         select *
         from grms.users u
-        where u.id=#{id,jdbcType=INTEGER}
+        where u.user_id=#{userId,jdbcType=INTEGER}
     </select>
 
     <select id="findAllUsers" resultType="top.cyanide.GRMS.pojo.User">
         select *
         from grms.users u
-        <if test="name != null and name != ''">
+        <if test="userId != null and userId != ''">
             <where>
-                u.name like concat('%',#{name,jdbcType=VARCHAR},'%')
+                u.user_id = #{userId,jdbcType=INTEGER}
             </where>
         </if>
     </select>

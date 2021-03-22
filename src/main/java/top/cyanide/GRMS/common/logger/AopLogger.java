@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AopLogger {
     private final Logger logger = LoggerFactory.getLogger(AopLogger.class);
 
-    @Pointcut("execution(public * com.autoepacs.production..*.*(..))")
+    @Pointcut("execution(public * top.cyanide.GRMS..*.*(..))")
     public void productionLog() {
     }
 

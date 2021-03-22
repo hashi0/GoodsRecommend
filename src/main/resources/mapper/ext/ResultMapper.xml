@@ -4,9 +4,9 @@
     <select id="findAllResults" resultType="top.cyanide.GRMS.pojo.Result">
         select *
         from grms.results r
-        <if test="uid!=null">
+        <if test="userId!=null">
             <where>
-                r.uid = #{uid,jdbcType=INTEGER}
+                r.user_id = #{userId,jdbcType=INTEGER}
             </where>
             order by r.exp desc
         </if>

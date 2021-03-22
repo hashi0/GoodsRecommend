@@ -73,7 +73,7 @@ public class ResultController {
         String token = request.getHeader("Authorization");
         User user = this.userService.findUserByToken(token);
         Map<String, Object> map = new HashMap<>();
-        List<Result> allResults = this.resultService.findAllResults(user.getId());
+        List<Result> allResults = this.resultService.findAllResults(user.getUserId());
         map.put("total", allResults.size());
         allResults = allResults.subList(pageSize > allResults.size() ? 0 : (page - 1) * pageSize,
             Math.min((page) * pageSize, allResults.size()));

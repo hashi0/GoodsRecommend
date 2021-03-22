@@ -11,5 +11,5 @@ import java.util.List;
 public interface IUserDAO {
     User selectByIdUser(Integer id);
 
-    List<User> findAllUsers(@Param(value = "name") String name);
+    List<User> findAllUsers(@Param(value = "userId") String name);
 }

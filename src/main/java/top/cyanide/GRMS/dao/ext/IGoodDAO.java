@@ -4,10 +4,11 @@ import org.apache.ibatis.annotations.Param;
 import top.cyanide.GRMS.pojo.Good;
 
 import java.util.List;
+import top.cyanide.GRMS.pojo.Product;
 
 /**
  * @author Bai
  */
 public interface IGoodDAO {
-    List<Good> findAllGoods(@Param(value = "name") String name);
+    List<Product> findAllGoods(@Param(value = "productName") String name);
 }
