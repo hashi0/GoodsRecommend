@@ -1,7 +1,5 @@
 package top.cyanide.GRMS.sevice;
 
-import top.cyanide.GRMS.pojo.Good;
-
 import java.util.List;
 import top.cyanide.GRMS.pojo.Product;
 

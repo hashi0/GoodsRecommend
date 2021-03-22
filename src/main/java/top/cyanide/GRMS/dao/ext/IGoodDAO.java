@@ -1,7 +1,6 @@
 package top.cyanide.GRMS.dao.ext;
 
 import org.apache.ibatis.annotations.Param;
-import top.cyanide.GRMS.pojo.Good;
 
 import java.util.List;
 import top.cyanide.GRMS.pojo.Product;
