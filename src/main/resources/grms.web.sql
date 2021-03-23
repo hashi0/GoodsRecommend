@@ -4,32 +4,40 @@ use grms;
 
 create table if not exists users
 (
-    id     int primary key auto_increment comment '用户id',
-    passwd varchar(20)       default null comment '用户密码',
-    name   varchar(20)       default null comment '姓名',
-    age    int               default null,
-    gender enum ('nan','nv') default null
+    user_id  int primary key comment '用户id',
+    password varchar(20) default null comment '用户密码'
 );
 
-create table if not exists goods
+create table if not exists products
 (
-    id          int primary key auto_increment comment '商品id',
-    name        varchar(20)   default null comment '商品名称',
-    price       double(10, 2) default null comment '商品价格',
-    description text comment '商品描述'
+    product_id    int primary key comment '商品id',
+    product_name  varchar(128) default null comment '商品名称',
+    department_id int          default null comment '部门id（一级品类id）',
+    department    varchar(32)  default null comment '部门名（一级品类名）',
+    aisle_id      int          default null comment '货架id（二级品类id）',
+    aisle         varchar(32)  default null comment '货架名（二级品类名）'
 );
 
 create table if not exists orders
 (
-    id  int primary key auto_increment comment '订单id',
-    uid int default null comment '产生该订单的用户id',
-    gid int default null comment '产生该订单的商品id'
+    order_id               int          default null comment '订单id',
+    user_id                int          default null comment '产生该订单的用户id',
+    product_id             int          default null comment '产生该订单的商品id',
+    product_name           varchar(128) default null comment '商品名称',
+    add_to_cart_order      int          default null comment '添加到购物篮中的商品序号',
+    reordered              int          default null comment '复购',
+    order_number           int          default null comment '该用户的订单序号',
+    order_dow              int          default null comment '星期order of week',
+    order_hour_of_day      int          default null comment '小时',
+    days_since_prior_order float        default null comment '离上次order的天数'
 );
 
 create table if not exists results
 (
-    id  int primary key auto_increment comment '推荐结果id',
-    uid int default null comment '用户id',
-    gid int default null comment '商品id',
-    exp int default null comment '推荐指数'
+    user_id      int          default null comment '用户id',
+    product_id   int          default null comment '商品id',
+    product_name varchar(128) default null comment '商品名称',
+    department   varchar(32)  default null comment '部门名（一级品类名）',
+    aisle        varchar(32)  default null comment '货架名（二级品类名）',
+    exp          int          default null comment '推荐指数'
 );

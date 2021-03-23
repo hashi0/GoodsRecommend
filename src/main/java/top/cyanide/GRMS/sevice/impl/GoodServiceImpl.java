@@ -42,6 +42,7 @@ public class GoodServiceImpl implements IGoodService {
     public void buy(Integer userId, Integer productId, String productName) {
         Order order = new Order();
         order.setUserId(userId);
+        order.setOrderId(-userId); // 先把新添加的订单号都置为-userId吧
         order.setProductId(productId);
         order.setProductName(productName);
         this.orderMapper.insert(order);
