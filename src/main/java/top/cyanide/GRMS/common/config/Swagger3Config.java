@@ -29,8 +29,8 @@ public class Swagger3Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
             .title("推荐引擎Web程序接口文档")
-            .description("更多请咨询服务开发者Kevin")
-            .contact(new Contact("Kevin", "http://www.mrzhiyi.cn", "mrzhiyi@163.com"))
+            .description("Bai")
+            .contact(new Contact("Bai", "https://cyanide.top/", "baihaiyu1999@163.com"))
             .version("1.0")
             .build();
     }
